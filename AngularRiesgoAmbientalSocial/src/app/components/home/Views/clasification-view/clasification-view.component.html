@@ -1,0 +1,482 @@
+<div class="container-header">
+  <h1>Formulario de Clasificaci&oacute;n: {{ formCode }}</h1>
+</div>
+
+<div class="container">
+  <form [formGroup]="displayFormGroup">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Nombre del Cliente</mat-label>
+              <input
+                matInput
+                formControlName="customerNameCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>N&uacute;mero del Cliente</mat-label>
+              <input
+                matInput
+                formControlName="customerNumberCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Ciudad</mat-label>
+              <input
+                matInput
+                formControlName="customerCityCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Departamento o Banca</mat-label>
+              <input
+                matInput
+                formControlName="customerDepCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Zona</mat-label>
+              <input
+                matInput
+                formControlName="customerZoneCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Sucursal del Banco</mat-label>
+              <input
+                matInput
+                formControlName="customerBranchCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Oficial de Cuentas</mat-label>
+              <input
+                matInput
+                formControlName="customerOfficerCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="sectorView">
+      <table>
+        <tr>
+          <td style="width: 30rem">
+            <mat-form-field style="width: 30rem">
+              <mat-label>Sector</mat-label>
+              <input
+                matInput
+                formControlName="customerSectorCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td style="width: 40rem">
+            <mat-form-field style="width: 40rem">
+              <mat-label>SubSector</mat-label>
+              <input
+                matInput
+                formControlName="customerSubSectorCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label
+                >Actividad del Cliente ingresada de forma manual</mat-label
+              >
+              <input
+                matInput
+                formControlName="customerManualActivityCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Nivel de riesgo ingresado de forma manual</mat-label>
+              <input
+                matInput
+                formControlName="customerManualRiskCtr"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="selectorEdit" class="Sector-Subsector">
+      <mat-form-field appearance="fill">
+        <mat-label>Selecione el Sector:</mat-label>
+        <mat-select
+          formControlName="sectorsGroupCtrl"
+          (selectionChange)="getSubSectors($event)"
+        >
+          <mat-option *ngFor="let sector of sectors" [value]="sector.code">
+            {{ sector.description }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Selecione el Subsector:</mat-label>
+        <mat-select
+          formControlName="subsectorsGroupCtrl"
+          (selectionChange)="getSubSector($event)"
+        >
+          <mat-option
+            *ngFor="let subsector of subsectors"
+            [value]="subsector.code"
+          >
+            {{ subsector.description }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="otherActivities" class="otra-actividad">
+        <h3>
+          En caso que la actividad del cliente no esta mencionada en la lista de
+          sectores y/o sub sectores, indique la actividad econ&oacute;mica
+          as&iacute; como el nivel de riesgo ambiental y social (bajo, medio,
+          alto) en los campos siguientes:
+        </h3>
+        <mat-form-field>
+          <mat-label>La actividad del cliente:</mat-label>
+          <input
+            formControlName="manualCustomerActivityCtrl"
+            matInput
+            placeholder="Actividad"
+          />
+        </mat-form-field>
+        <div class="nivel-riesgo-group">
+          <label id="nive-riesgo">Nivel de riesgo A&S:</label>
+          <mat-radio-group aria-labelledby="nive-riesgo">
+            <ul>
+              <li>
+                <mat-radio-button
+                  #radioBajo
+                  [checked]="true"
+                  [value]="1"
+                  (change)="getManualRiskSelected(radioBajo.value)"
+                  >Bajo</mat-radio-button
+                >
+              </li>
+              <li>
+                <mat-radio-button
+                  #radioMedio
+                  [value]="2"
+                  (change)="getManualRiskSelected(radioMedio.value)"
+                  >Medio</mat-radio-button
+                >
+              </li>
+              <li>
+                <mat-radio-button
+                  #radioAlto
+                  [value]="3"
+                  (change)="getManualRiskSelected(radioAlto.value)"
+                  >Alto</mat-radio-button
+                >
+              </li>
+            </ul>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+    <table class="table-risk">
+      <tbody>
+        <tr>
+          <td>
+            Actividades ubicadas en &aacute;reas protegidas o
+            ecol&oacute;gicamente vulnerables
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="checkBox1Ctr"
+              (change)="checkListItemSelected(1, $event)"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos serios y no reversibles al entorno
+            ambiental
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="checkBox2Ctr"
+              (change)="checkListItemSelected(2, $event)"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de riesgos serios de salud para la comunidad
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="checkBox3Ctr"
+              (change)="checkListItemSelected(3, $event)"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos significativos a vias fluviales
+            internacionales
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="checkBox4Ctr"
+              (change)="checkListItemSelected(4, $event)"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>Generaci&oacute;n de impactos significativos a bosque virgen</td>
+          <td>
+            <mat-checkbox
+              formControlName="checkBox5Ctr"
+              (change)="checkListItemSelected(5, $event)"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos significativos a los pueblos
+            ind&iacute;genas
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="checkBox6Ctr"
+              (change)="checkListItemSelected(6, $event)"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos significativos a la propiedad cultural
+            (sitios religiosos o arqueol&oacute;gicos)
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="checkBox7Ctr"
+              (change)="checkListItemSelected(7, $event)"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos significativos a cuencas mediante
+            actividades de sustracci&oacute;n, modificaci&oacute;n,
+            irrigaci&oacute;n o saneamiento
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="checkBox8Ctr"
+              (change)="checkListItemSelected(8, $event)"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Reubicaci&oacute;n involuntaria de comunidades / familias
+            (m&aacute;s de 20 familias)
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="checkBox9Ctr"
+              (change)="checkListItemSelected(9, $event)"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Ingresos (Ventas) (monto en d&oacute;lares)</mat-label>
+            <input
+              matInput
+              #annualSales
+              formControlName="annualSalesCtr"
+              pattern="^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$"
+              type="number"
+              placeholder="0.00"
+              autocomplete="off"
+              (keypress)="numberOnly($event)"
+            />
+            <span matPrefix>$&nbsp;</span>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Monto Original (monto en d&oacute;lares)</mat-label>
+            <input
+              matInput
+              formControlName="creditAmountCtr"
+              pattern="^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$"
+              type="number"
+              placeholder="0.00"
+              autocomplete="off"
+              (keypress)="numberOnly($event)"
+            />
+            <span matPrefix>$&nbsp;</span>
+          </mat-form-field>
+        </td>
+        <td style="width: 20rem">
+          <mat-form-field
+            appearance="fill"
+            floatLabel="always"
+            style="width: 20rem"
+          >
+            <mat-label>Saldo Actual (monto en d&oacute;lares)</mat-label>
+            <input
+              matInput
+              type="number"
+              formControlName="groupExposseCtr"
+              pattern="^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$"
+              placeholder="0.00"
+              autocomplete="off"
+              (keypress)="numberOnly($event)"
+              (keyup)="calculateRisk()"
+            />
+            <span matPrefix>$&nbsp;</span>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <h2>Rating A&S</h2>
+    <h3>
+      El Rating A&S se produce autom&aacute;ticamente con base a la actividad
+      econ&oacute;mica y las ventas anuales del cliente asi como su exposicion
+      total con el Banco.
+    </h3>
+    <div class="resultado-calculo">
+      <div *ngIf="nivelView == true" style="margin-top: 0.3rem">
+        <mat-form-field>
+          <mat-label>Nivel de Riesgo Resultado:</mat-label>
+          <input
+            matInput
+            formControlName="resutlRiesgoSocial"
+            autocomplete="off"
+            placeholder="Ingrese el dato"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Raiting A&S Restulado:</mat-label>
+          <input
+            matInput
+            formControlName="resultNivelRiesgoSocial"
+            autocomplete="off"
+            placeholder="Ingrese el dato"
+          />
+        </mat-form-field>
+      </div>
+      <div *ngIf="nivelView == false" style="margin-top: 0.3rem">
+        <mat-form-field>
+          <mat-label>Nivel de Riesgo Resultado:</mat-label>
+          <input
+            matInput
+            formControlName="nivelResultado"
+            autocomplete="off"
+            placeholder="Ingrese el dato"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Raiting A&S Restulado:</mat-label>
+          <input
+            matInput
+            formControlName="ratingResultado"
+            autocomplete="off"
+            placeholder="Ingrese el dato"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+<div *ngIf="statusReg == true" class="container-foot">
+  <button *ngIf="isCerrar" mat-raised-button (click)="closeForm()">
+    Cerrar
+  </button>
+  <button
+    *ngIf="isCancel"
+    mat-raised-button
+    color="accent"
+    (click)="turnEdition('1')"
+  >
+    Cancelar
+  </button>
+  <button
+    *ngIf="isEdit"
+    mat-raised-button
+    color="primary"
+    (click)="turnEdition('2')"
+  >
+    editar
+  </button>
+  <button
+    *ngIf="isSave"
+    mat-raised-button
+    color="primary"
+    (click)="postUpdateData()"
+    [disabled]="!displayFormGroup.valid ? 'disabled' : null"
+  >
+    Guardar
+  </button>
+</div>
+<div *ngIf="statusReg == false" class="container-foot">
+  <button *ngIf="isCerrar" mat-raised-button (click)="closeForm()">
+    Cerrar
+  </button>
+</div>

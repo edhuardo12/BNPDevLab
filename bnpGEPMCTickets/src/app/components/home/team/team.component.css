@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem;
+}
+.workteam {
+  display: block;
+  margin: 0.5rem;
+  padding: 0.2rem;
+  width: 25%;
+  height: 100%;
+}
+
+.datatable {
+  text-align: center;
+}
+
+.workload {
+  display: block;
+  margin: 0.5rem;
+  padding: 0.2rem;
+  width: 75%;
+  height: 100%;
+}
+
+h1 {
+  margin-left: 0.5rem;
+}
+.footButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0.3rem;
+}

@@ -1,0 +1,32 @@
+export class PrintForm {
+  data01: any;
+  data02: any;
+  data03: any;
+  data04: any;
+  data05: any;
+  data06: any;
+  data07: any;
+  data08: any;
+  data09: any;
+  data10: any;
+  data11: any;
+  data12: any;
+  data13: any;
+  data14: any;
+  data15: any;
+  data16: any;
+  data17: any;
+  data18: any;
+  data19: any;
+  data20: any;
+  data21: any;
+  data22: any;
+  data23: any;
+  data24: any;
+  data25: any;
+  data26: any;
+  data27: any;
+  data28: any;
+  data29: any;
+  data30: any;
+}

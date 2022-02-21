@@ -1,0 +1,148 @@
+<h2>Informaci&oacute;n General del Cliente</h2>
+<div [formGroup]="userGeneralData">
+  <div class="userNameField">
+    <mat-form-field style="width: 12rem">
+      <mat-label>N&uacute;mero del Cliente</mat-label>
+      <input
+        #customerNumber
+        matInput
+        formControlName="customerNumer"
+        placeholder="Presione Enter para continuar"
+        autocomplete="off"
+        (keyup.enter)="validateCustomerNumber(customerNumber.value)"
+        (keypress)="numberOnly($event)"
+      />
+    </mat-form-field>
+    <span *ngIf="customerNumberNoExist"
+      ><mat-icon aria-hidden="false" aria-label="Example home icon"
+        >check_circle_outline</mat-icon
+      ></span
+    >
+    <span *ngIf="customerNumberExist"
+      ><mat-icon aria-hidden="false" aria-label="Example home icon"
+        >not_interested</mat-icon
+      ></span
+    >
+    <mat-form-field *ngIf="showUserDataGroup" appearance="fill">
+      <mat-label>Seleccione Identificación:</mat-label>
+      <mat-select formControlName="customerInputType">
+        <mat-option value="Número de IBS">Número de Cliente</mat-option>
+        <mat-option value="Cédula">Cédula</mat-option>
+        <mat-option value="RUC">RUC</mat-option>
+        <mat-option value="Número de Propuesta Crédito"
+          >Número de Propuesta Crédito</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div *ngIf="showUserDataGroup">
+    <div class="userDataGroup">
+      <mat-form-field>
+        <mat-label>Nombre del Cliente</mat-label>
+        <input
+          matInput
+          formControlName="customerName"
+          placeholder="Nombre del Cliente"
+          (keypress)="commentsOnly($event)"
+          onCopy="return false"
+          onDrag="return false"
+          onDrop="return false"
+          onPaste="return false"
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ciudad</mat-label>
+        <input
+          matInput
+          formControlName="customerCity"
+          autocomplete="off"
+          (keypress)="commentsOnly($event)"
+          placeholder="Ciudad"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Departamento o Banca</mat-label>
+        <input
+          matInput
+          formControlName="customerDepartment"
+          autocomplete="off"
+          (keypress)="commentsOnly($event)"
+          placeholder="Departamento o Banca"
+        />
+      </mat-form-field>
+    </div>
+    <div class="zona-radio-group">
+      <label id="zona-cliente">Zona:</label>
+      <mat-radio-group aria-labelledby="zona-cliente">
+        <ul>
+          <li>
+            <mat-radio-button
+              #radioRural
+              [checked]="true"
+              [value]="1"
+              (change)="setZoneValue(radioRural.value)"
+              >Rural</mat-radio-button
+            >
+          </li>
+          <li>
+            <mat-radio-button
+              #radioUrbana
+              [value]="2"
+              (change)="setZoneValue(radioUrbana.value)"
+              >Urbana</mat-radio-button
+            >
+          </li>
+          <li>
+            <mat-radio-button
+              #radioIndustrial
+              [value]="3"
+              (change)="setZoneValue(radioIndustrial.value)"
+              >&Aacute;rea Industrial</mat-radio-button
+            >
+          </li>
+        </ul>
+      </mat-radio-group>
+    </div>
+    <div class="separador">
+      <mat-divider></mat-divider>
+    </div>
+    <div>
+      <h3>Contacto del Banco</h3>
+      <mat-form-field>
+        <mat-label>Sucursal del banco</mat-label>
+        <input
+          matInput
+          formControlName="bankBranch"
+          autocomplete="off"
+          (keypress)="commentsOnly($event)"
+          placeholder="Nombre de Sucursal"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Oficial de Cuentas</mat-label>
+        <input
+          matInput
+          formControlName="bankOfficerName"
+          autocomplete="off"
+          (keypress)="commentsOnly($event)"
+          placeholder="Nombre de Oficial"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div>
+    <button mat-raised-button color="accent" (click)="closeDialog()">
+      Cancelar
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!userGeneralData.valid"
+      (click)="setCustomerClass()"
+    >
+      Guardar
+    </button>
+  </div>
+</div>

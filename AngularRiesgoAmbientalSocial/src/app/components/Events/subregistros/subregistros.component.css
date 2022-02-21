@@ -1,0 +1,9 @@
+table td {
+  text-align: center;
+}
+
+.container-foot {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0.6rem;
+}

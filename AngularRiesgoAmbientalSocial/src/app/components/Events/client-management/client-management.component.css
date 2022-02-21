@@ -1,0 +1,20 @@
+.form-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.row-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 7px;
+}
+
+.row-button .mat-button-base {
+  margin: 8px 8px 8px 0;
+}

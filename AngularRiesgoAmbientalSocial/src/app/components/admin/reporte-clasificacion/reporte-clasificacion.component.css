@@ -1,0 +1,13 @@
+.contenido {
+  display: block;
+  margin: 0.5rem;
+  height: 100%;
+}
+
+.contenido .table-data {
+  width: 100%;
+}
+
+.table-data tr {
+  text-align: center;
+}

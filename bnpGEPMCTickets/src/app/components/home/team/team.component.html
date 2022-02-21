@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="workteam">
+    <h1>Mi Equipo de Trabajo</h1>
+    <div class="datatable">
+      <table
+        datatable
+        [dtTrigger]="dtTrigger"
+        [dtOptions]="dtOptions"
+        class="row-border hover"
+      >
+        <thead>
+          <tr>
+            <th>Codigo Usuario</th>
+            <th>Nombre Usuario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of users">
+            <td>{{ data.user_code }}</td>
+            <td>{{ data.user_name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footButtons">
+      <button mat-raised-button color="primary" (click)="rerender()">
+        Reload
+      </button>
+    </div>
+  </div>
+  <div class="workload">
+    <h1>Carga de Trabajo - {{ userName }}</h1>
+    <app-my-tickets
+      [userCode]="userCode"
+      [hidden]="userCode == undefined"
+    ></app-my-tickets>
+  </div>
+</div>

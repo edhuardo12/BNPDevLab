@@ -1,0 +1,114 @@
+<mat-toolbar class="mat-elevation-z1">
+  <button
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="./assets/img/mini-logo-white.png" />
+  <span>GEPMC - Gestión de Tickets</span>
+  <span class="toolbar-spacer"></span>
+  <button
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    [matMenuTriggerFor]="menu"
+  >
+    <mat-icon class="tool">account_circle</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item disabled>
+      <mat-icon>account_circle</mat-icon>
+      <span>{{ tokenPayload.name }}</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button
+      mat-menu-item
+      (click)="
+        openConfirmationDialog(
+          'Salir',
+          '¿Segur@ que deseas salir de la aplicación?'
+        )
+      "
+    >
+      <mat-icon>logout</mat-icon>
+      <span>Salir</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #drawer class="sidenav" mode="side" [(opened)]="opened">
+    <mat-nav-list>
+      <div *ngIf="role == 'owner' || role == 'administrador'">
+        <a mat-list-item routerLink="/home/inbox">
+          <mat-icon
+            matBadge="{{ tickets_number }}"
+            matBadgeColor="warn"
+            matBadgeSize="small"
+            mat-list-icon
+            >inbox</mat-icon
+          >
+          <div mat-line>Bandeja de Entrada</div>
+        </a>
+
+        <a mat-list-item routerLink="dashboard">
+          <mat-icon mat-list-icon>dashboard</mat-icon>
+          <div mat-line>Dashboard</div>
+        </a>
+
+        <a mat-list-item routerLink="reports">
+          <mat-icon mat-list-icon>poll</mat-icon>
+          <div mat-line>Reportes</div>
+        </a>
+
+        <mat-divider></mat-divider>
+      </div>
+
+      <div *ngIf="role == 'owner' || role == 'supervisor'">
+        <a mat-list-item routerLink="workload">
+          <mat-icon mat-list-icon>manage_accounts</mat-icon>
+          <div mat-line>Carga de Trabajo</div>
+        </a>
+
+        <a mat-list-item routerLink="myTeam">
+          <mat-icon mat-list-icon>groups</mat-icon>
+          <div mat-line>Mi Equipo</div>
+        </a>
+
+        <mat-divider></mat-divider>
+      </div>
+
+      <div *ngIf="role == 'owner' || role == 'analista'">
+        <a mat-list-item routerLink="myTickets">
+          <mat-icon mat-list-icon>inbox</mat-icon>
+          <div mat-line>Mis Tickets</div>
+        </a>
+
+        <mat-divider></mat-divider>
+      </div>
+
+      <a mat-list-item href="help">
+        <mat-icon mat-list-icon>help_outline</mat-icon>
+        <div mat-line>Ayuda</div>
+      </a>
+
+      <a
+        mat-list-item
+        (click)="
+          openConfirmationDialog(
+            'Salir',
+            '¿Segur@ que deseas salir de la aplicación?'
+          )
+        "
+      >
+        <mat-icon mat-list-icon>logout</mat-icon>
+        <div mat-line>Salir</div>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

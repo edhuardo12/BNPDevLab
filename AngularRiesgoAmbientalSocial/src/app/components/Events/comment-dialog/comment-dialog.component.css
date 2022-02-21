@@ -1,0 +1,9 @@
+.comment-full-width {
+  width: 40rem;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0.5rem;
+}

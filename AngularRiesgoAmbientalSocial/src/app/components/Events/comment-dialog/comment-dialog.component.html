@@ -1,0 +1,31 @@
+<div>
+  <form [formGroup]="commentDataForm">
+    <mat-form-field class="comment-full-width" appearance="fill">
+      <mat-label>Agregar Comentario</mat-label>
+      <textarea
+        matInput
+        #message
+        formControlName="commentCtrl"
+        maxlength="256"
+        rows="5"
+        (keypress)="commentsOnly($event)"
+        placeholder="Favor dejar comentarios de decisión..."
+        autocomplete="off"
+      ></textarea>
+      <mat-hint align="start"
+        ><strong>Debe dejar un comentario</strong></mat-hint
+      >
+      <mat-hint align="end">{{ message.value.length }} / 256</mat-hint>
+    </mat-form-field>
+  </form>
+  <div class="button-group">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!commentDataForm.valid"
+      (click)="closeDialog()"
+    >
+      Enviar
+    </button>
+  </div>
+</div>

@@ -1,0 +1,160 @@
+<div class="dialog-header">
+  <h2 mat-dialog-title>
+    Actualización de Datos - Ticket N° {{ TicketNumber }}
+  </h2>
+  <button mat-icon-button (click)="closeDialog()">
+    <mat-icon matSuffix>close</mat-icon>
+  </button>
+</div>
+
+<form
+  [formGroup]="ticketInfromationForm"
+  novalidate
+  autocomplete="off"
+  (ngSubmit)="onSubmit()"
+>
+  <mat-dialog-content>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Número de Ticket</mat-label>
+          <input formControlName="ticketNumber" autocomplete="off" matInput />
+          <mat-icon matSuffix>confirmation_number</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Origen del Ticket</mat-label>
+          <mat-select required formControlName="ticketOrigin">
+            <mat-option *ngFor="let item of arrayData1" [value]="item.param_id">
+              {{ item.value }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>trip_origin</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Es TeamCentral (Auditoria)?</mat-label>
+          <mat-select required formControlName="teamCentral">
+            <mat-option *ngFor="let item of arrayData2" [value]="item.param_id">
+              {{ item.value }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>badge</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Gerencia Ejecutiva del Creador</mat-label>
+          <mat-select required formControlName="gerenciaEjecutiva">
+            <mat-option *ngFor="let item of arrayData3" [value]="item.param_id">
+              {{ item.value }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>supervisor_account</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Correo Creador</mat-label>
+          <input formControlName="correoUsuario" autocomplete="off" matInput />
+          <mat-icon matSuffix>drafts</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Número de Informe</mat-label>
+          <input formControlName="numInforme" autocomplete="off" matInput />
+          <mat-icon matSuffix>drafts</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Requerimiento Por</mat-label>
+          <mat-select required formControlName="reqPor">
+            <mat-option *ngFor="let item of arrayData4" [value]="item.param_id">
+              {{ item.value }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>badge</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Manual Relacionado</mat-label>
+          <input formControlName="manualReq" autocomplete="off" matInput />
+          <mat-icon matSuffix>menu_book</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Detalles de la Solicitud</mat-label>
+          <textarea
+            matInput
+            #message_recomendacion
+            formControlName="detalles"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+          ></textarea>
+          <mat-hint align="start"
+            ><strong>Información ingresada desde Service Desk</strong>
+          </mat-hint>
+          <mat-hint align="end"
+            >{{ message_recomendacion.value.length }} / 1000</mat-hint
+          >
+          <mat-icon matSuffix>info</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Comentarios</mat-label>
+          <textarea
+            matInput
+            #message_comentarios
+            formControlName="comentarios"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+          ></textarea>
+          <mat-hint align="start"
+            ><strong>No coloque informaci&oacute;n personal</strong>
+          </mat-hint>
+          <mat-hint align="end"
+            >{{ message_comentarios.value.length }} / 1000</mat-hint
+          >
+          <mat-icon matSuffix>infong </mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button
+      mat-raised-button
+      type="button"
+      color="warn"
+      (click)="closeDialog()"
+    >
+      Cancelar
+    </button>
+    <div
+      class="btnAccion"
+      *ngIf="currentRole == 'owner' || currentRole == 'supervisor'"
+    >
+      <button mat-raised-button type="submit" color="primary">Guardar</button>
+    </div>
+  </mat-dialog-actions>
+</form>

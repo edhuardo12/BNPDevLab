@@ -1,0 +1,70 @@
+<div>
+  <h2>
+    Tabla de Sub Registros de Registro Principal: {{ data.currentUniqueKey }}
+  </h2>
+</div>
+<div>
+  <div>
+    <table
+      *ngIf="datatable"
+      datatable
+      [dtOptions]="dtOptions"
+      class="row-border hover"
+    >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>C&oacute;digo Formulario</th>
+          <th>Tipo Formulario</th>
+          <th>Estado</th>
+          <th>Fecha de Creaci&oacute;n</th>
+          <th>Fecha Modificaci&oacute;n</th>
+          <th>Comentarios</th>
+          <th>Opci&oacute;n</th>
+          <th *ngIf="isPrint == true">Imprimir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of arrayData">
+          <td>{{ data.id }}</td>
+          <td>{{ data.form_code }}</td>
+          <td>{{ data.form_type }}</td>
+          <td>{{ data.state }}</td>
+          <td>{{ data.creation_date }}</td>
+          <td>{{ data.modification_date }}</td>
+          <td>{{ data.commentarios }}</td>
+          <td>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="
+                doSomethingWithBotton(data.id, data.form_code, data.form_type)
+              "
+            >
+              Ver
+            </button>
+          </td>
+          <td *ngIf="isPrint == true">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="imprimirForm(data.id, data.form_code, data.form_type)"
+            >
+              Imprimir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container-foot">
+    <button
+      *ngIf="enviarEvaluacion"
+      mat-raised-button
+      color="primary"
+      (click)="doSendtoEvaluation()"
+    >
+      Enviar a Revisi&oacute;n
+    </button>
+  </div>
+</div>

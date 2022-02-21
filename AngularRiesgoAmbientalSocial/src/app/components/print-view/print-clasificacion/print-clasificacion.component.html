@@ -1,0 +1,490 @@
+<mat-toolbar class="mat-elevation-z1">
+  <img src="./assets/img/mini-logo-white.png" />
+  <span
+    >Banco Nacional de Panam&aacute; - Gesti&oacute;n de Riesgo Ambiental y
+    Social</span
+  >
+  <span class="toolbar-spacer"></span>
+  <button
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    (click)="printDocument()"
+  >
+    <mat-icon class="tool">print</mat-icon>
+  </button>
+  <span class="toolbar-spacer"></span>
+  <button
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    (click)="returnMainPage()"
+  >
+    <mat-icon class="tool">arrow_back</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div id="PrintContent" class="print-area">
+  <div class="header">
+    <h1>Formulario de Clasificaci&oacute;n: {{ formCode }}</h1>
+  </div>
+  <div class="contenido">
+    <form [formGroup]="formularioFormGroup">
+      <h2>Cliente y actividad</h2>
+      <h3>
+        Provee la información relevante y marque las características aplicables
+      </h3>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td><h3>Nombre del Cliente:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae01"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>N&uacute;mero del Cliente:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae02"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Ciudad:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae03"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Departamento o Banca:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae04"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Zona:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae05"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Contacto del Banco</h2>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td><h3>Sucursal de Banco:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae06"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Oficial de Cuentas:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae07"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Actividad Económica del cliente</h2>
+      <h3>
+        Seleccione el sector y sub sector del cliente con base en su actividad
+        económica presente
+      </h3>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td><h3>Sector:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae08"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Subsector:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae09"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <p style="margin-left: 0.5rem">
+        En el caso que la actividad económica del cliente no está mencionado en
+        la lista de sectores y/o sub sectores, consulte con el Especialista A&S
+        e indique al mano la actividad económica así como el nivel de riesgo
+        ambiental y social (bajo, mediano, alto)
+      </p>
+      <table>
+        <tr>
+          <td><h3>La actividad económica del cliente:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae10"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Nivel de riesgo A&S:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae11"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Nivel de Riesgo Ambiental y Social Alto</h2>
+      <h3>
+        Marque si la actividad para financiar tiene una de las siguientes
+        características
+      </h3>
+      <mat-divider></mat-divider>
+      <table class="table-risk">
+        <tr>
+          <td>
+            <h3>
+              Actividades ubicados en las áreas protegidas o ecológicamente
+              vulnerables
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae12"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Generación de impactos serios y no reversibles al entorno
+              ambiental
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae13"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>Generación de riesgos serios de salud para la comunidad</h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae14"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Generación de impactos signicativos a vías fluviales
+              internacionales
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae15"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Generación de impactos signicativos a bosque virgen</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae16"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>Generación de impactos signicativos a los pueblos indígenas</h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae17"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Generación de impactos signicativos a la propiedad cultural
+              (sitios religiosos o arqueológicos)
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae18"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Generación de impactos signicativos a cuencas mediante de
+              actividades de sustracción, modificación, irrigación o saneamiento
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae19"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Reubicación involuntario de comunidades / familias (más de 20
+              familias)
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae20"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Datos financieros del cliente</h2>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td><h3>Ventas anuales (monto en dólares):</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae21"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Monto del crédito (monto en dólares):</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae22"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Total de exposición del cliente (monto en dólares):</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae23"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Rating A&S</h2>
+      <h3>
+        El Rating A&S se produce automáticamente con base en la actividad
+        económica y las ventas anuales del cliente así como su exposición total
+        con el Banco
+      </h3>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td><h3>Nivel de Riesgo (Generado por formula):</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae25"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Resultado Raiting A&S:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae24"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Gerencia Ejecutiva de Sostenibilidad y Gestión Socioambiental</h2>
+      <h3>Nombre del aprobador del registro</h3>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td><h3>Nombre Aprobador:</h3></td>
+          <td>
+            <mat-form-field style="width: 15rem">
+              <mat-label></mat-label>
+              <input
+                matInput
+                formControlName="formularioDatae26"
+                autocomplete="off"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>

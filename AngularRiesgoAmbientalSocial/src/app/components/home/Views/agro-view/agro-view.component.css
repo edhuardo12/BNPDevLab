@@ -1,0 +1,85 @@
+ul {
+  list-style: none;
+}
+
+.li-horarios {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+.container-header {
+  margin-left: 0.4rem;
+}
+
+.container-table {
+  padding: 1rem;
+}
+
+.container-table table {
+  text-align: justify;
+}
+
+.container-form {
+  padding: 1rem;
+}
+
+.container-form table {
+  text-align: justify;
+  width: 100%;
+}
+
+.container-form tbody tr {
+  background-color: white;
+  border-collapse: separate;
+}
+.container-form p {
+  font-size: smaller;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+.radio-group {
+  width: 50%;
+}
+
+.radio-group li {
+  list-style: none;
+  margin-top: 2px;
+}
+
+.radio-group-esp {
+  width: 50%;
+}
+
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  width: 490px;
+}
+
+.button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}

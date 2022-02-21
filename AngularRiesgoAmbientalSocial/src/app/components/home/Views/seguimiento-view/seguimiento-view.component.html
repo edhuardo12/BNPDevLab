@@ -1,0 +1,709 @@
+<div class="container-header">
+  <h1>Monitoreo de Cumplimiento: {{ formCode }}</h1>
+</div>
+<div class="container-form">
+  <form [formGroup]="formularioFormGroup">
+    <table class="form-field">
+      <tr>
+        <td><h2>Validación de la clasificación del cliente</h2></td>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            Valide la clasificación del cliente como fue determinado en la
+            solicitud de crédito más reciente
+          </h3>
+        </td>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <td><h2>Actividad Económica del cliente</h2></td>
+      </tr>
+      <tr>
+        <h3>
+          Seleccione el nivel de riesgo A&S del cliente como fue indicados en la
+          solicitud de crédito más reciente
+        </h3>
+      </tr>
+      <tr>
+        <td><h3>Nivel de riesgo A&S:</h3></td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData01"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select formControlName="segData01">
+              <mat-option value="Bajo">Bajo</mat-option>
+              <mat-option value="Medio">Medio</mat-option>
+              <mat-option value="Alto">Alto</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <td><h2>Total de exposición del cliente</h2></td>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            Seleccione el total de exposición del cliente con el banco como fue
+            indicados en la solicitud de crédito más reciente
+          </h3>
+        </td>
+      </tr>
+      <tr>
+        <td><h3>Total de exposición del cliente (monto en dólares):</h3></td>
+        <td style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData02"
+              placeholder="ingresar datos"
+              type="number"
+              (keypress)="numberOnly($event)"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <td><h2>Rating A&S</h2></td>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            Indique el Rating A&S como fue establecida en la solicitud más
+            reciente
+          </h3>
+        </td>
+      </tr>
+      <tr>
+        <td><h3>Rating A&S:</h3></td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData03"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select formControlName="segData03">
+              <mat-option value="Nivel 1">Nivel 1</mat-option>
+              <mat-option value="Nivel 2">Nivel 2</mat-option>
+              <mat-option value="Nivel 3">Nivel 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <td><h2>Actividad Económica del cliente</h2></td>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            Seleccione el sector y subsector del cliente como fueron indicados
+            en la solicitud de crédito presente
+          </h3>
+        </td>
+      </tr>
+      <tr>
+        <td><h3>Sector:</h3></td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData04"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label>Selecione el Sector:</mat-label>
+            <mat-select
+              formControlName="segData29"
+              (selectionChange)="getSubSectors($event)"
+            >
+              <mat-option *ngFor="let sector of sectors" [value]="sector.code">
+                {{ sector.description }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td><h3>Subsector:</h3></td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              formControlName="segData05"
+              matInput
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label>Selecione el Subsector:</mat-label>
+            <mat-select formControlName="segData30">
+              <mat-option
+                *ngFor="let subsector of subsectors"
+                [value]="subsector.code"
+              >
+                {{ subsector.description }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <h3>
+          En el caso que la actividad económica presente del cliente no está
+          mencionado en la lista de sectores y/o sub sectores, consulte con el
+          Especialista A&S e indique al mano la la actividad económica del
+          cliente así como su nivel de riesgo A&S (bajo, mediano, alto)
+        </h3>
+      </tr>
+      <tr>
+        <td><h3>La actividad económica del cliente:</h3></td>
+        <td>
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData06"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td><h3>Nivel de riesgo A&S:</h3></td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData07"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select formControlName="segData07">
+              <mat-option value="Bajo">Bajo</mat-option>
+              <mat-option value="Medio">Medio</mat-option>
+              <mat-option value="Alto">Alto</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table class="table-risk">
+      <tbody>
+        <tr>
+          <h2>Nivel de Riesgo Ambiental y Social Alto</h2>
+        </tr>
+        <tr>
+          <h3>
+            Marque si la actividad para financiar tiene una de las siguientes
+            características
+          </h3>
+        </tr>
+        <tr>
+          <td>
+            Actividades ubicadas en &aacute;reas protegidas o
+            ecol&oacute;gicamente vulnerables
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="segData08"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos serios y no reversibles al entorno
+            ambiental
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="segData09"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de riesgos serios de salud para la comunidad
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="segData10"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos significativos a vias fluviales
+            internacionales
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="segData11"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>Generaci&oacute;n de impactos significativos a bosque virgen</td>
+          <td>
+            <mat-checkbox
+              formControlName="segData12"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos significativos a los pueblos
+            ind&iacute;genas
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="segData13"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos significativos a la propiedad cultural
+            (sitios religiosos o arqueol&oacute;gicos)
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="segData14"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Generaci&oacute;n de impactos significativos a cuencas mediante
+            actividades de sustracci&oacute;n, modificaci&oacute;n,
+            irrigaci&oacute;n o saneamiento
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="segData15"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Reubicaci&oacute;n involuntaria de comunidades / familias
+            (m&aacute;s de 20 familias)
+          </td>
+          <td>
+            <mat-checkbox
+              formControlName="segData15"
+              class="example-margin"
+            ></mat-checkbox>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="form-field">
+      <tr>
+        <h2>Ventas anuales</h2>
+      </tr>
+      <tr>
+        <td><h3>Indique las ventas anuales presentes del cliente:</h3></td>
+        <td>
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData17"
+              placeholder="0.00"
+              type="numeric"
+              (keypress)="numberOnly($event)"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <h2>Total de exposición</h2>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            Indique el total de exposición presentes del cliente con el Banco:
+          </h3>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              #tExpoBanco
+              formControlName="segData18"
+              placeholder="0.00"
+              type="numeric"
+              (keypress)="numberOnly($event)"
+              required
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table class="form-field">
+      <tr>
+        <h2>Cumplimiento con los covenants y medidas A&S</h2>
+      </tr>
+      <tr>
+        <h3>
+          Valide el cumplimiento del cliente con los covenants A&S definidos en
+          el contrato y el avance de la implementación del Plan de Acción
+        </h3>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            El contrato con el cliente incluye convenants A&S específicos?
+          </h3>
+        </td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData19"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select formControlName="segData19">
+              <mat-option value="Si">Si</mat-option>
+              <mat-option value="No">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            El contrato incluye un Plan de Acción que define medidas, fechas
+            límites o entregantes específicos cuales deben ser implementados por
+            el cliente?
+          </h3>
+        </td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData20"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select formControlName="segData20">
+              <mat-option value="Si">Si</mat-option>
+              <mat-option value="No">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            El cliente cumple con todos los covenants y condiciones definidos en
+            el contrato/Plan de Acción cuales son aplicables en este momento de
+            monitoreo?
+          </h3>
+        </td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData21"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select formControlName="segData21">
+              <mat-option value="Si">Si</mat-option>
+              <mat-option value="No">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>En caso de incumplimiento del cliente, favor de específicar</h3>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-label></mat-label>
+            <textarea
+              matInput
+              formControlName="segData22"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="5"
+              (keypress)="commentsOnly($event)"
+            ></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <h2>Nuevos eventos A&S</h2>
+      </tr>
+      <tr>
+        <h3>
+          Indique si se ocurrió nuevos eventos A&S relevantes desde la solicitud
+          de crédito más reciente
+        </h3>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            Se ocurrió cualquier evento A&S negativo con respecto al cliente
+            desde la solicitud de crédito más reciente?
+          </h3>
+        </td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData23"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select formControlName="segData23">
+              <mat-option value="Si">Si</mat-option>
+              <mat-option value="No">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            En caso positivo, favor de específicar (por ejemplo accidentes,
+            multas, campañas de ONG, quejas, prensa negativa, etc.)?
+          </h3>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-label></mat-label>
+            <textarea
+              matInput
+              formControlName="segData24"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="5"
+              (keypress)="commentsOnly($event)"
+            ></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            El cliente tomó medidas a causa de estos eventos A&S negativos?
+          </h3>
+        </td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData25"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select formControlName="segData25">
+              <mat-option value="Si">Si</mat-option>
+              <mat-option value="No">No</mat-option>
+              <mat-option value="No Aplicable">No Aplicable</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>En caso positivo, favor de específicar</h3>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-label></mat-label>
+            <textarea
+              matInput
+              formControlName="segData26"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="5"
+              (keypress)="commentsOnly($event)"
+            ></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <h2>Medidas correctivas</h2>
+      </tr>
+      <tr>
+        <h3>
+          Con base en la validación del Rating A&S y del estatus de cumplimiento
+          del cliente, se puede definir medidas correctivas cuando sea necesario
+        </h3>
+      </tr>
+      <tr>
+        <mat-divider></mat-divider>
+      </tr>
+      <tr>
+        <td>
+          <h3>
+            Se require definir medidas correctivas para que el cliente cumpla de
+            nuevo con los covenants del contrato con el banco?
+          </h3>
+        </td>
+        <td *ngIf="editMode == false" style="margin-left: 1rem">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input
+              matInput
+              formControlName="segData27"
+              placeholder="ingresar datos"
+            />
+          </mat-form-field>
+        </td>
+        <td *ngIf="editMode == true">
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <mat-select formControlName="segData27">
+              <mat-option value="Si">Si</mat-option>
+              <mat-option value="No">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>En caso positivo, favor de específicar</h3>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-label></mat-label>
+            <textarea
+              matInput
+              formControlName="segData28"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="5"
+              (keypress)="commentsOnly($event)"
+            ></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+<div class="button-row">
+  <button *ngIf="isCerrar" mat-raised-button (click)="closeForm()">
+    Cerrar
+  </button>
+  <div *ngIf="isDesicion">
+    <button
+      *ngIf="isCancel"
+      mat-raised-button
+      color="accent"
+      (click)="turnEdition('1')"
+    >
+      Cancelar
+    </button>
+    <button
+      *ngIf="isEdit"
+      mat-raised-button
+      color="primary"
+      (click)="turnEdition('2')"
+    >
+      editar
+    </button>
+    <button
+      *ngIf="isSave"
+      mat-raised-button
+      color="primary"
+      (click)="postFormData()"
+    >
+      Guardar
+    </button>
+  </div>
+</div>

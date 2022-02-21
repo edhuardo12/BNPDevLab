@@ -1,0 +1,1062 @@
+<mat-toolbar class="mat-elevation-z1">
+  <img src="./assets/img/mini-logo-white.png" />
+  <span
+    >Banco Nacional de Panam&aacute; - Gesti&oacute;n de Riesgo Ambiental y
+    Social</span
+  >
+  <span class="toolbar-spacer"></span>
+  <button
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    (click)="printDocument()"
+  >
+    <mat-icon class="tool">print</mat-icon>
+  </button>
+  <span class="toolbar-spacer"></span>
+  <button
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    (click)="returnMainPage()"
+  >
+    <mat-icon class="tool">arrow_back</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div id="PrintContent" class="print-area">
+  <div class="header">
+    <h1>Formulario de Agricola: {{ formCode }}</h1>
+  </div>
+  <div class="contenido">
+    <form [formGroup]="formularioFormGroup">
+      <h2>Cliente y propiedad</h2>
+      <h3>Describa las características del cliente y de su propiedad.</h3>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td><h3>Número de Cliente:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="numeroClienteCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Zona habitacional más cercana:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="zonaHabitacional"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Área protegida más cercana:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="areaProtegida"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Asentamientos campesinos en la zona:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="asentCamp"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Asentamientos originarios en la zona:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="asentOrig"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Características específicas de la actividad</h2>
+      <h3>Describa las características de la actividad del cliente</h3>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td><h3>Dimensión total de la propiedad (Has/m²):</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="dimesionTotal"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Dimensión ocupada por el proyecto (Has/m²):</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="dimesionOcupada"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Cultivos a establecer:</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="cutlivos"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Superficie agrícola propia (Has/m²):</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="superficiePropia"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Superficie agrícola arrendada (Has/m²):</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="superficieArrendada"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Area total cultivada (Has/m²):</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="areaTotal"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Legislación y permisos</h2>
+      <h3>
+        Marque si el cliente cuenta con los siguientes permisos y cumple con las
+        siguientes leyes. Provee una explicación donde sea necesario.
+      </h3>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td>
+            <h3>Plan de gestión y licencia aprobado por las autoridades</h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="legisPerm01Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="legisPerm01expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Cumplimiento con otras leyes relevantes</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="legisPerm02Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="legisPerm02expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Infraestructura</h2>
+      <h3>
+        Marque si el cliente cuenta con una de las siguientes infraestructuras.
+        Provea una explicación donde sea necesario.
+      </h3>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td><h3>Fuente de provision de agua</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra01Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra01expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Cuenta con red publica electrica</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra02Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra02expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Otras fuentes de energia utilizadas</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra03Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra03expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Maquinarias Agricolas propias</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra04Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra04expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Maquinarias Agricolas Alquiladas para las labores</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra05Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra05expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Fuente de provision de agua para Maquinarias Agricolas
+              (pulverizadora)
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="infra06Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Manejo y mitigación</h2>
+      <h3>
+        Marque si el cliente cuenta con una de las siguientes medidas. Provea
+        una explicación donde sea necesario.
+      </h3>
+      <mat-divider></mat-divider>
+      <h2>Suelo</h2>
+      <table>
+        <tr>
+          <td><h3>Protección de pendiente (curvas de nivel)</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="suelo01Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="suelo01expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Cobertura vegetal adyacente al cultivo (bosque, arbustos, etc)
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="suelo02Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="suelo02expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Medidas de proteccion de los suelos (siembra directa, rotacion de
+              cultivos, abonos verdes, barrera viva, etc)
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="suelo03Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="suelo03expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Agua</h2>
+      <table>
+        <tr>
+          <td>
+            <h3>
+              Protección de nacientes y cursos de agua para uso extensivo y
+              polución en el caso que exista en la propiedad
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="agua01Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="agua01expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Utiliza riego para el cultivo</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="agua02Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="agua02expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: end">
+            <h3>¿Cuántas Hectáreas se riegan?</h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="agua03Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: end">
+            <h3>Procedencia del agua para el riego</h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="agua04Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: end"><h3>Tipo/Método de riego</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="agua05Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: end">
+            <h3>Cantidad de agua utilizada por día (m³/día) para el riego</h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="agua06Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Salud & seguridad y comunidades</h2>
+      <table>
+        <tr>
+          <td><h3>Los empleados cuentan con seguro médico</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ssc01Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ssc01expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Equipos de primeros auxilios (Botiquín)</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ssc02Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ssc02expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Políticas y programas adecuadas para las relaciones con
+              habitantes, campesinos o pueblos indígenas en la zona
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ssc03Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ssc03expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Planes, políticas y gestiones corporativas</h2>
+      <h3>
+        Marque si el cliente cuenta con una de las siguientes medidas. Provea
+        una explicación donde sea necesario.
+      </h3>
+      <mat-divider></mat-divider>
+      <table>
+        <tr>
+          <td>
+            <h3>
+              Información sobre el medio circunvecino respecto de la geología,
+              hidrológica, flora y fauna, topografía
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc01Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc01expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Algún tipo de servicios a la población</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc02Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc02expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Asentamientos de pueblos originarios en la zona</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc03Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc03expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Planes de reforestación en la finca</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc04Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc04expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Programa de capacitación y adiestramiento- asistencia técnica
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc05Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc05expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Medidas de control de incendios forestales</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc06Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc06expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Barreras naturales de protección (franjas de protección boscosa)
+              contra deriva de agroquímicos
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc07Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc07expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Manejo adecuado de envases de agroquímicos</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc08Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc08expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><h3>Triple lavado de los envases de agroquímicos usados</h3></td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc09Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc09Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>Disposición adecuada de los envases usados de agroquímicos</h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc10Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc10expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>
+              Los envases vacios de agroquímicos son retirados por las empresas
+              proveedoras
+            </h3>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc11Ctrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Explicación</mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="ppgc11expCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-divider></mat-divider>
+      <h2>Conclusiones</h2>
+      <div class="caracteristicas">
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Caracterisitcas especiales</mat-label>
+          <textarea
+            matInput
+            formControlName="conclusion"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+          ></textarea>
+        </mat-form-field>
+      </div>
+      <mat-divider></mat-divider>
+      <h2>Recomendaciones</h2>
+      <div class="caracteristicas">
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Caracterisitcas especiales</mat-label>
+          <textarea
+            matInput
+            formControlName="recomendacion"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+          ></textarea>
+        </mat-form-field>
+      </div>
+      <mat-divider></mat-divider>
+      <h2>Gerencia Ejecutiva de Sostenibilidad y Gestión Socioambiental</h2>
+      <h3>Nombre del aprobador del registro:</h3>
+      <table>
+        <tr>
+          <td>
+            <mat-form-field style="width: 15rem">
+              <mat-label></mat-label>
+              <input
+                matInput
+                autocomplete="off"
+                formControlName="usuarioAprobadorCtrl"
+                placeholder="Ingrese el dato"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>

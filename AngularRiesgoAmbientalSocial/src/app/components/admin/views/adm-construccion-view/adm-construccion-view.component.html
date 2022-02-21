@@ -1,0 +1,1205 @@
+<div class="container-header">
+  <h1>Formulario Sectorial - Construcci&oacute;n: {{ formCode }}</h1>
+</div>
+
+<div class="container-form">
+  <form [formGroup]="formularioFormGroup">
+    <mat-accordion class="example-headers-align" multi>
+      <!-- Seccion Cliente y propiedad -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Cliente y propiedad </mat-panel-title>
+          <mat-panel-description>
+            Describa las características del cliente y de su propiedad.
+            <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <tbody>
+            <tr>
+              <td>Zona habitacional m&aacute;s cercana:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer01Ctrl"
+                    placeholder="Ingrese el dato"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>&Aacute;rea protegida m&aacute;s cercana:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer02Ctrl"
+                    placeholder="Ingrese el dato"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Seccion Caracteristicas rspecificas de la actividad -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Caracter&iacute;sticas espec&iacute;ficas de la actividad
+          </mat-panel-title>
+          <mat-panel-description>
+            Describa las caracter&iacute;sticas de la actividad del cliente
+            <mat-icon>travel_explore</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                Superficie del terreno en la que se realiza el proyecto
+                (Has/m<sup>2</sup>):
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer03Ctrl"
+                    placeholder="Ingrese la dimensión"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Dimensi&oacute;n total del proyecto (Has/m<sup>2</sup>):</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer04Ctrl"
+                    placeholder="Ingrese la dimensión"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Tipo de bienes ra&iacute;ces:</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer05Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Seccion Legislacion y permisos -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Legislaci&oacute;n y permisos</mat-panel-title>
+          <mat-panel-description>
+            Marque si el cliente cuenta con los siguientes permisos y cumple con
+            las siguientes leyes. Provee una explicaci&oacute;n donde sea
+            necesario
+            <mat-icon>manage_accounts</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <thead>
+            <th></th>
+            <th></th>
+            <th>Explicaci&oacute;n</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Plan de gesti&oacute;n y licencia aprobado por las autoridades:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="legisPerm01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="legisPerm01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Cumplimiento con otras leyes relevantes:</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="legisPerm02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="legisPerm02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Manejo y mitigacion -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Manejo y mitigaci&oacute;n</mat-panel-title>
+          <mat-panel-description>
+            Marque si el cliente cuenta con una de las siguientes medidas.
+            Provea una explicaci&oacute;n donde sea necesario.
+            <mat-icon>thumb_up</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <thead>
+            <th></th>
+            <th></th>
+            <th>Explicaci&oacute;n</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><h3>Suelo:</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Estudio sobre el estado de contaminaci&oacute;n del terreno:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="suelo01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Declaraci&oacute;n que NO haya elementos de asbestos en las
+                construcciones:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="suelo02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Estudio de desastres naturales (terremotos, inundaciones,
+                hurac&aacute;nes)
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="suelo03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Desastres naturales</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Estudio de la probabilidad de desastres naturales:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="desastreNat01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="desastreNat01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right">Terremotos:</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="desastreNat02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="desastreNat02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right">Inundaciones:</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="desastreNat03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="desastreNat03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right">Hurac&aacute;nes:</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="desastreNat04Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="desastreNat04expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Residuos</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Clasificaci&oacute;n, almacenamiento y separaci&oacute;n de
+                envases de productos qu&iacute;micos/peligrosos/t&oacute;xicos:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="residuos01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="residuos01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Pr&aacute;cticas de reciclado o reutilizaci&oacute; de residuos
+                s&oacute;lidos:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="residuos02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="residuos02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Emisiones y ruido</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Medidas preventivas de contaminaci&oacute;n atmosf&eacute;rica:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="emisionesRuido01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="emisionesRuido01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Pr&aacute;ctivas de reducci&oacute;n de polvo y ruido:
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right">Polvo:</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="emisionesRuido02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="emisionesRuido02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right">Ruido:</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="emisionesRuido03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="emisionesRuido03expCtrl"
+                    placeholder="ingresar datos"
+                  />
+                  <textarea
+                    matInput
+                    formControlName="emisionesRuido03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Seguridad, Higiene y Medicina en el Trabajo</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Empleados cuentas con seguro m&eacute;dico:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="higiene01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Equipos de primeros auxilios (Botiqu&iacute;n,
+                param&eacute;dicos, etc.):
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="higiene02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Equipos de protecci&oacute;n individual para las labores:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="higiene03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">Salidas de emergencias:</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene04Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="higiene04expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Se&ntilde;alizaciones de seguridad:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="shmt01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="shmt01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Brigadas de emergencias, personal de la empresa capacitado o
+                entrenado ante posibles sinistros:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="shmt02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="shmt02expCtrl"
+                    placeholder="ingresar datos"
+                  />
+                  <textarea
+                    matInput
+                    formControlName="shmt02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">Sistema de ventilaci&oacute;n</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="shmt03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="shmt03expCtrl"
+                    placeholder="ingresar datos"
+                  />
+                  <textarea
+                    matInput
+                    formControlName="shmt03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Equipos de protecci&oacute;n contra incendios:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="shmt04Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="shmt04expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Comunidad</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Estudio de impacto a comunidades (vecionos/habitantes)
+                afectados:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="comunidad01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="comunidad01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Mecanismo de consultaci&oacute;n de las comunidades afectadas:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="comunidad02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="comunidad02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Mecanismo de queja oficial para las comuniddes afectadas:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="comunidad03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="comunidad03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Plan de compansaci&oacute;n adecuada para las comunidades
+                afectadas:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="comunidad04Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="comunidad04expCtrl"
+                    placeholder="ingresar datos"
+                  />
+                  <textarea
+                    matInput
+                    formControlName="comunidad04expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Planes, politicas y gestiones corporativas -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title
+            >Planes, politicas y gestiones corporativas</mat-panel-title
+          >
+          <mat-panel-description>
+            Marque si el cliente cuenta con una de las siguientes medidas.
+            <mat-icon>manage_accounts</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                El proyecto cuenta con un plan para la construcci&oacute;n de un
+                edificio verde/sostenible.
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                El proyecto obtiene o planea obtener un certificado LEED
+                (Leadership in Environmental and Efficiency Design)
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                El proyecto obtiene o planea obtener otro certificado de
+                construcci&oacute;n verde/sostenible (BREEAM, otro)
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Medidas de control de incendios e inflamabilidad</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc04Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc04expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Programa de prevenci&oacute;n de accidentes</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc05Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc05expCtrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Programa de mantenimiento de instalaciones el&eacute;ctricas y
+                maquinarias:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc06Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc06expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Procedimiento de notificaci&oacute;n de problemas al &aacute;rea
+                circundante:
+              </td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc07Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc07expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Procedimientos, programas o planes de emergencia</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc08Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc08expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Alg&uacute;n tipo de servicios a la poblaci&oacute;n</td>
+              <td style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc09Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc09expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Seccion Conclusiones y Recomendaciones -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Conclusiones y Recomendaciones</mat-panel-title>
+          <mat-panel-description>
+            Describa aqui sus conclusiones sobre los impactos y riesgos y
+            recomendaciones para la mitigaci&oacute;n de los mismos
+            <mat-icon>health_and_safety</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+          <h2>Conclusiones</h2>
+          <mat-form-field class="example-full-width">
+            <mat-label>Conclusiones</mat-label>
+            <textarea
+              matInput
+              #message_conclusion
+              formControlName="conclusion"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="5"
+            ></textarea>
+            <mat-hint align="start"
+              ><strong>No coloque informaci&oacute;n personal</strong>
+            </mat-hint>
+            <mat-hint align="end"
+              >{{ message_conclusion.value.length }} / 256</mat-hint
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <h2>Recomendaciones</h2>
+          <mat-form-field class="example-full-width">
+            <mat-label>Recomendaciones</mat-label>
+            <textarea
+              matInput
+              #message_recomendacion
+              formControlName="recomendacion"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="5"
+            ></textarea>
+            <mat-hint align="start"
+              ><strong>No coloque informaci&oacute;n personal</strong>
+            </mat-hint>
+            <mat-hint align="end"
+              >{{ message_recomendacion.value.length }} / 256</mat-hint
+            >
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+  <div>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="button-row">
+    <button mat-raised-button (click)="closeForm()">Cerrar</button>
+    <div *ngIf="isDesicion">
+      <button mat-raised-button color="warn" (click)="openNewComment('1')">
+        Corregir
+      </button>
+      <button mat-raised-button color="primary" (click)="openNewComment('2')">
+        Marcar Verificado
+      </button>
+    </div>
+  </div>
+</div>

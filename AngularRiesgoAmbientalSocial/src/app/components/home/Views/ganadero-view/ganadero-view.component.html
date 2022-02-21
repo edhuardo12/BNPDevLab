@@ -1,0 +1,1738 @@
+<div class="container-header">
+  <h1>Formulario Sectorial - Ganader&iacute;a: {{ formCode }}</h1>
+</div>
+
+<div class="container-form">
+  <form [formGroup]="formularioFormGroup">
+    <mat-accordion class="example-headers-align" multi>
+      <!-- Seccion Cliente y propiedad -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Cliente y propiedad </mat-panel-title>
+          <mat-panel-description>
+            Describa las caracter&iacute;sticas del cliente y de su propiedad.
+            <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <tbody>
+            <tr>
+              <td>Zona habitacional m&aacute;s cercana:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer01Ctrl"
+                    placeholder="Ingrese el dato"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>&Aacute;rea protegida m&aacute;s cercana:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer02Ctrl"
+                    placeholder="Ingrese el dato"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Asentamientos campesinos en la zona:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer03Ctrl"
+                    placeholder="Ingrese el dato"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Asentamientos originarios en la zona:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer04Ctrl"
+                    placeholder="Ingrese el dato"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Seccion Caracteristicas rspecificas de la actividad -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Caracter&iacute;sticas espec&iacute;ficas de la actividad
+          </mat-panel-title>
+          <mat-panel-description>
+            Describa las caracter&iacute;sticas de la actividad del cliente.
+            <mat-icon>travel_explore</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                Dimensi&oacute;n total de la propiedad (Has/m<sup>2</sup>):
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer05Ctrl"
+                    placeholder="Ingrese la dimensión"
+                    type="number"
+                    (keypress)="numberOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Dimensi&oacute;n ocupada por el proyecto (Has/m<sup>2</sup>):
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer06Ctrl"
+                    placeholder="Ingrese la dimensión"
+                    type="number"
+                    (keypress)="numberOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Tipo de ganado:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer07Ctrl"
+                    placeholder="Ingrese la dimension"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Cantidad de cabezas:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer08Ctrl"
+                    placeholder="Ingrese el dato"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Cantidad de potreros:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer09Ctrl"
+                    placeholder="Ingrese el dato"
+                    type="number"
+                    (keypress)="numberOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Finalidad de la producci&oacute;n:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <textarea
+                    matInput
+                    formControlName="customer10Ctrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    (keypress)="commentsOnly($event)"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Superficie ganadera propia (Has/m<sup>2</sup>):</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer11Ctrl"
+                    placeholder="Ingrese la dimensión"
+                    type="number"
+                    (keypress)="numberOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Superficie ganadera arrendada (Has/m<sup>2</sup>):</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer12Ctrl"
+                    placeholder="Ingrese la dimensión"
+                    type="number"
+                    (keypress)="numberOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>&Aacute;rea total cultivada (Has/m<sup>2</sup>):</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="customer13Ctrl"
+                    placeholder="Ingrese la dimensión"
+                    type="number"
+                    (keypress)="numberOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Seccion Legislacion y permisos -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Legislaci&oacute;n y permisos</mat-panel-title>
+          <mat-panel-description>
+            Marque si el cliente cuenta con los siguientes permisos y cumple con
+            las siguientes leyes. Provee una explicaci&oacute;n donde sea
+            necesario
+            <mat-icon>manage_accounts</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <thead>
+            <th></th>
+            <th></th>
+            <th>Explicaci&oacute;n</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Plan de gesti&oacute;n y licencia aprobado por las autoridades:
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="legisPerm01Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="legisPerm01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="legisPerm01Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="legisPerm01expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Cumplimiento con la Ley de Deforestaci&oacute;n Cero:</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="legisPerm02Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="legisPerm02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="legisPerm02Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="legisPerm02expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Seccion Infraestructura -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Infraestructura</mat-panel-title>
+          <mat-panel-description>
+            Marque si el cliente cuenta con una de las siguientes medidas.
+            Provea una explicaci&oacute;n donde sea necesario.
+            <mat-icon>public</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <thead>
+            <th></th>
+            <th></th>
+            <th>Explicaci&oacute;n</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tiene energia el&eacute;ctrica en la estancia:</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="infra01Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="infra01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="infra01Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="infra01expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Otro tipo de energia especificar:</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="infra02Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="infra02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="infra02Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="infra02expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Disponibilidad de agua:</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="infra03Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="infra03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="infra03Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="infra03expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Maquinarias propias:</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="infra04Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="infra04expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="infra04Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="infra04expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Maquinarias alquiladas para las labores:</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="infra05Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="infra05expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="infra05Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="infra05expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>¿De d&oacute;nde obtiene el cliente sus insumos?</h3></td>
+            </tr>
+            <tr>
+              <td>Nombre de la empresa proveedora:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <textarea
+                    matInput
+                    formControlName="infra06Ctrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    (keypress)="commentsOnly($event)"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Insumos prove&iacute;dos por la empresa:</td>
+              <td>
+                <mat-form-field>
+                  <mat-label></mat-label>
+                  <textarea
+                    matInput
+                    formControlName="infra07Ctrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    (keypress)="commentsOnly($event)"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                La empresa provee asesoramiento t&eacute;cnico sobre la
+                utilizaci&oacute;n de sus productos.
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="infra08Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="infra08Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Manejo y mitigacion -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Manejo y mitigaci&oacute;n</mat-panel-title>
+          <mat-panel-description>
+            Marque si el cliente cuenta con una de las siguientes medidas.
+            Provea una explicaci&oacute;n donde sea necesario.
+            <mat-icon>thumb_up</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <thead>
+            <th></th>
+            <th></th>
+            <th>Explicaci&oacute;n</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><h3>Suelo:</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Protecci&oacute;n de pendiente:
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo01Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="suelo01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="suelo01Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo01expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Evita el sobrepastoreo en los potreros, rotaci&oacute;n del
+                ganado para evitar la erosi&oacute;n
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo02Ctrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="suelo02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="suelo02Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo02expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Implementa sistemas silvopastoriles
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="suelo03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="suelo03Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo03expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Forestaci&oacute;n/Reforestaci&oacute;n en el establecimiento
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo04Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="suelo04expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="suelo04Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo04expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Mejora la productividad de los pastos para hacerlos m&aacute;s
+                conservacionistas y menos degradados.
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo05Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="suelo05expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="suelo05Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo05expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Evita la tala de bosques nativos para el establecimiento de
+                nuevos pastizales.
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo06Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="suelo06expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="suelo06Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="suelo06expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Agua</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Protecci&oacute; de nacientes y cursos de agua, en el caso que
+                exista en la proiedad
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="agua01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="agua01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="agua01Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="agua01expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Cantidad de agua utilizada por d&iacute;a
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="agua02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="agua02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="agua02Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="agua02expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Higiene</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">Veterinario propio:</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="higiene01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="higiene01Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene01expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Medidas de cuidado sanitario (si/no, mencionar que tipo de
+                maquinaria y cantidad):
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="higiene02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="higiene02Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene02expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">Matadero propio:</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="higiene03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="higiene03Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene03expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Medidas de manejo de desechos animales:
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene04Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="higiene04expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="higiene04Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="higiene04expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td><h3>Salud & seguridad y comunidades</h3></td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Los empleados cuentan con seguro m&eacute;dico;
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ssc01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ssc01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="ssc01Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="ssc01expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Equipos de primeros auxilos (Botiqu&iacute;n)
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ssc02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ssc02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="ssc02Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="ssc02expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                Pol&iacute;ticas y programas adecuados para las relaciones con
+                habitates campesionos o pueblos indi&iacute;genas en la zona:
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ssc03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ssc03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="ssc03Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="ssc03expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Planes, politicas y gestiones corporativas -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title
+            >Planes, politicas y gestiones corporativas</mat-panel-title
+          >
+          <mat-panel-description>
+            Marque si el cliente cuenta con una de las siguientes medidas.
+            <mat-icon>manage_accounts</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                Informaci&oacute;n sobre el medio circunvecino respecto de la
+                geolog&iacute;a, hidrolog&iacute;a, flora y fauna,
+                topograf&iacute;a:
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc01Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc01expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="ppgc01Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc01expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Alg&uacute;n tipo de servicios a la poblaci&oacute;n</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc02Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc02expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="ppgc02Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc02expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Programa de capacitaci&oacute;n y adiestramiento - asistencia
+                t&eacute;cnica
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc03Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc03expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="ppgc03Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc03expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>Medidas de control de incendios forestales</td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc04Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+
+                  <textarea
+                    matInput
+                    formControlName="ppgc04expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="ppgc04Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc04expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Barreras naturales de protecci&oacute;n (franjas de
+                protecci&oacute;n boscosa)
+              </td>
+              <td *ngIf="editMode == false" style="margin-left: 1rem">
+                <mat-form-field style="width: 10rem">
+                  <mat-label></mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc05Ctrl"
+                    placeholder="ingresar datos"
+                  />
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == false">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="ppgc05expCtrl"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                  ></textarea>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field appearance="fill">
+                  <mat-label></mat-label>
+                  <mat-select formControlName="ppgc05Ctrl">
+                    <mat-option value="Si">Si</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td *ngIf="editMode == true">
+                <mat-form-field>
+                  <mat-label>Explicaci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    formControlName="ppgc05expCtrl"
+                    placeholder="ingresar datos"
+                    (keypress)="commentsOnly($event)"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      <!-- Seccion Conclusiones y Recomendaciones -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Conclusiones y Recomendaciones</mat-panel-title>
+          <mat-panel-description>
+            Describa aqui sus conclusiones sobre los impactos y riesgos y
+            recomendaciones para la mitigaci&oacute;n de los mismos
+            <mat-icon>health_and_safety</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+          <h2>Conclusiones</h2>
+          <mat-form-field class="example-full-width">
+            <mat-label>Conclusiones</mat-label>
+            <input
+              matInput
+              formControlName="conclusion"
+              #message_conclusion
+              maxlength="256"
+              placeholder="Ex. I need help with..."
+              (keypress)="commentsOnly($event)"
+            />
+            <mat-hint align="start"
+              ><strong>No coloque informaci&oacute;n personal</strong>
+            </mat-hint>
+            <mat-hint align="end"
+              >{{ message_conclusion.value.length }} / 256</mat-hint
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <h2>Recomendaciones</h2>
+          <mat-form-field class="example-full-width">
+            <mat-label>Recomendaciones</mat-label>
+            <input
+              matInput
+              formControlName="recomendacion"
+              #message_recomendacion
+              maxlength="256"
+              placeholder="Ex. I need help with..."
+              (keypress)="commentsOnly($event)"
+            />
+            <mat-hint align="start"
+              ><strong>No coloque informaci&oacute;n personal</strong>
+            </mat-hint>
+            <mat-hint align="end"
+              >{{ message_recomendacion.value.length }} / 256</mat-hint
+            >
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+  <div>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="button-row">
+    <button *ngIf="isCerrar" mat-raised-button (click)="closeForm()">
+      Cerrar
+    </button>
+    <div *ngIf="isDesicion">
+      <button
+        *ngIf="isCancel"
+        mat-raised-button
+        color="accent"
+        (click)="turnEdition('1')"
+      >
+        Cancelar
+      </button>
+      <button
+        *ngIf="isEdit"
+        mat-raised-button
+        color="primary"
+        (click)="turnEdition('2')"
+      >
+        editar
+      </button>
+      <button
+        *ngIf="isSave"
+        mat-raised-button
+        color="primary"
+        (click)="postFormData()"
+      >
+        Guardar
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="container-header">
+    <h1>Bandeja de Entrada - Tickets No Asignados</h1>
+  </div>
+
+  <div class="container-body">
+    <div *ngIf="showTable == true">
+      <table datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead>
+          <tr>
+            <th>Número Ticket</th>
+            <th>Tipo Reporte</th>
+            <th>Usuario Responsable</th>
+            <th>Estado</th>
+            <th>Fecha de Creación</th>
+            <th>Editar</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of arrayDataTable">
+            <td>{{ data.ticket_number }}</td>
+            <td>{{ data.tipo_reporte }}</td>
+            <td>{{ data.usuario_responsable }}</td>
+            <td>{{ data.state }}</td>
+            <td>{{ data.fecha_creacion }}</td>
+            <td>
+              <span class="link" (click)="EditTicketData(data.ticket_number)"
+                >Editar</span
+              >
+
+              <!-- <button
+                  mat-raised-button
+                  color="primary"
+                  (click)="EditTicketData(data.ticket_number)"
+                >
+                  
+                </button> -->
+            </td>
+            <td>
+              <span class="link" (click)="AssignTicket(data.ticket_number)">Acciones</span>
+              <!-- <button
+                  mat-raised-button
+                  color="accent"
+                  (click)="AssignTicket(data.ticket_number)"
+                >
+                  Acciones
+                </button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

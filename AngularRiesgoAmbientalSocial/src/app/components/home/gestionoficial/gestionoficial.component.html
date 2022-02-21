@@ -1,0 +1,50 @@
+<div class="container-header">
+  <h1>Tabla Principal de Registros</h1>
+</div>
+<div class="container">
+  <div class="button-group">
+    <button mat-raised-button color="primary" (click)="generateNewRegister()">
+      Crear registro
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      style="margin-left: 5px"
+      (click)="managementClient()"
+    >
+      Mantenimiento Cliente
+    </button>
+  </div>
+
+  <table
+    *ngIf="datatable"
+    datatable
+    [dtOptions]="dtOptions"
+    class="row-border hover"
+  >
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Llave &Uacute;nica</th>
+        <th>N&uacute;mero Cliente</th>
+        <th>Nombre Cliente</th>
+        <th>Estado</th>
+        <th>Fecha Creaci&oacute;n</th>
+        <th>Fecha Modificaci&oacute;n</th>
+        <th>Comentarios</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of arrayData">
+        <td>{{ data.id }}</td>
+        <td>{{ data.unique_key }}</td>
+        <td>{{ data.customerNumber }}</td>
+        <td>{{ data.customerName }}</td>
+        <td>{{ data.status }}</td>
+        <td>{{ data.creation_date }}</td>
+        <td>{{ data.modification_date }}</td>
+        <td>{{ data.comentarios }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

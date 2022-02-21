@@ -1,0 +1,38 @@
+.mat-form-field + .mat-form-field {
+  margin-left: 1.5rem;
+}
+
+.mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.userNameField {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+}
+
+.userNameField .mat-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 48px !important;
+}
+
+.userDataGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  margin-top: 0.2rem;
+}
+
+.zona-radio-group ul {
+  list-style: none;
+}
+.zona-radio-group li {
+  margin: 4px;
+}
+
+.separador {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

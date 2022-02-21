@@ -1,0 +1,13 @@
+.container-header {
+  margin: 0.5rem;
+  padding: 0.2rem;
+}
+
+.container {
+  margin: 0.5rem;
+  padding: 0.2rem;
+}
+
+.container table td {
+  text-align: center;
+}

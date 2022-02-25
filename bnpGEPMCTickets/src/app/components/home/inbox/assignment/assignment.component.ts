@@ -165,7 +165,6 @@ export class AssignmentComponent implements OnInit {
   }
 
   specialSLA(value: any) {
-    console.log(value);
     this.slaSpecial = value;
   }
 

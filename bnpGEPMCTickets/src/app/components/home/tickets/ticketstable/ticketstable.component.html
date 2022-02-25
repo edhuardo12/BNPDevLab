@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="container-header"></div>
+  <div class="container-body">
+    <div class="datatable">
+      <table
+        datatable
+        [dtTrigger]="dtTrigger"
+        [dtOptions]="dtOptions"
+        class="row-border hover"
+      >
+        <thead>
+          <tr>
+            <th>Número Ticket</th>
+            <th>Tipo Reporte</th>
+            <th>Usuario Responsable</th>
+            <th>Estado</th>
+            <th>Fecha de Creación</th>
+            <th>Editar</th>
+            <th>Historico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of tickets">
+            <td>{{ data.ticket_number }}</td>
+            <td>{{ data.tipo_reporte }}</td>
+            <td>{{ data.usuario_responsable }}</td>
+            <td>{{ data.state }}</td>
+            <td>{{ data.fecha_creacion }}</td>
+            <td>
+              <span class="link" (click)="showTicketDetail(data.ticket_number)"
+                >Editar</span
+              >
+            </td>
+            <td>
+              <span class="link" (click)="showTicketHistory(data.ticket_number)"
+                >Mostrar</span
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

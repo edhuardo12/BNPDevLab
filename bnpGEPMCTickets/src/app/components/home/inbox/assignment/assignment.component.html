@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col">
         <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Accion para el Ticket</mat-label>
+          <mat-label>Acción para el Ticket</mat-label>
           <mat-select
             #t
             required
@@ -105,6 +105,19 @@
           >¿Tiene SLA Especial?</mat-checkbox
         >
       </div>
+    </div>
+    <div class="row" *ngIf="showAsignar == true">
+      <div class="col">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Indique Fecha Ente</mat-label>
+          <input #fechaEnte matInput [matDatepicker]="picker" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
       <div class="col" *ngIf="slaSpecial == true">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Indique SLA Especial</mat-label>
@@ -148,10 +161,12 @@
 </form>
 
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" (click)="closeDialog()">
-    Cancelar
-  </button>
-  <button mat-raised-button color="primary" (click)="onSubmit()">
-    Guardar
-  </button>
+  <div class="button-row">
+    <button mat-raised-button color="warn" (click)="closeDialog()">
+      Cancelar
+    </button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Guardar
+    </button>
+  </div>
 </mat-dialog-actions>

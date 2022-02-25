@@ -27,9 +27,15 @@ import { ConfirmationComponent } from './components/events/confirmation/confirma
 import { InboxComponent } from './components/home/inbox/inbox.component';
 import { EditTicketComponent } from './components/home/inbox/edit-ticket/edit-ticket.component';
 import { AssignmentComponent } from './components/home/inbox/assignment/assignment.component';
-import { MyTicketsComponent } from './components/home/my-tickets/my-tickets.component';
+import { MyTicketsComponent } from './components/home/team/my-tickets/my-tickets.component';
 import { WorkloadComponent } from './components/home/workload/workload.component';
 import { TeamComponent } from './components/home/team/team.component';
+import { TicketsComponent } from './components/home/tickets/tickets.component';
+import { TicketstableComponent } from './components/home/tickets/ticketstable/ticketstable.component';
+import { TicketDetailComponent } from './components/home/tickets/ticket-detail/ticket-detail.component';
+import { TicketHistoryComponent } from './components/home/tickets/ticket-history/ticket-history.component';
+import { TicketCommentsComponent } from './components/home/tickets/ticket-detail/ticket-comments/ticket-comments.component';
+import { TicketCommentActionsComponent } from './components/home/tickets/ticket-comment-actions/ticket-comment-actions.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +49,13 @@ import { TeamComponent } from './components/home/team/team.component';
     AssignmentComponent,
     MyTicketsComponent,
     WorkloadComponent,
-    TeamComponent
+    TeamComponent,
+    TicketsComponent,
+    TicketstableComponent,
+    TicketDetailComponent,
+    TicketHistoryComponent,
+    TicketCommentsComponent,
+    TicketCommentActionsComponent
   ],
   imports: [
     BrowserModule,

@@ -136,25 +136,24 @@
           <mat-hint align="end"
             >{{ message_comentarios.value.length }} / 1000</mat-hint
           >
-          <mat-icon matSuffix>infong </mat-icon>
+          <mat-icon matSuffix>info</mat-icon>
         </mat-form-field>
       </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button
-      mat-raised-button
-      type="button"
-      color="warn"
-      (click)="closeDialog()"
-    >
-      Cancelar
-    </button>
-    <div
-      class="btnAccion"
-      *ngIf="currentRole == 'owner' || currentRole == 'supervisor'"
-    >
-      <button mat-raised-button type="submit" color="primary">Guardar</button>
+    <div class="button-row">
+      <button
+        mat-raised-button
+        type="button"
+        color="warn"
+        (click)="closeDialog()"
+      >
+        Cancelar
+      </button>
+      <div *ngIf="currentRole == 'owner' || currentRole == 'supervisor'">
+        <button mat-raised-button type="submit" color="primary">Guardar</button>
+      </div>
     </div>
   </mat-dialog-actions>
 </form>

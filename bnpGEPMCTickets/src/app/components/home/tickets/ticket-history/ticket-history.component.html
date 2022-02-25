@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Historico de Actividades Ticket N° {{ ticketNumber }}</h1>
+</div>
+
+<div *ngIf="showtable == true">
+  <table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Etapa</th>
+        <th>Tarea</th>
+        <th>Aprobacion</th>
+        <th>Fecha de Inicio</th>
+        <th>SLA</th>
+        <th>Fecha Entrega</th>
+        <th>Días Transcurrido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of arrayData">
+        <td>{{ data.step }}</td>
+        <td>{{ data.etapa }}</td>
+        <td>{{ data.task }}</td>
+        <td>{{ data.aprobacion }}</td>
+        <td>{{ data.fechaInicio }}</td>
+        <td>{{ data.SLA }}</td>
+        <td>{{ data.fechaEntrega }}</td>
+        <td>{{ data.tiempoTranscurrido }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

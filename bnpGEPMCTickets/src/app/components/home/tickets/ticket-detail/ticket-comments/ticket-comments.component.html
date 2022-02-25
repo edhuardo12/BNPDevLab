@@ -1,0 +1,45 @@
+<div class="content-header">
+  <h1>Nuevo Comentario Ticket N° {{ ticketNumber }}</h1>
+</div>
+
+<div class="content-body">
+  <div class="form">
+    <form [formGroup]="ticketNewComment" novalidate autocomplete="off">
+      <mat-dialog-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="fullWidth" appearance="outline">
+              <mat-label>Comentarios</mat-label>
+              <textarea
+                matInput
+                #message_comentarios
+                formControlName="comentarios"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5"
+              ></textarea>
+              <mat-hint align="start"
+                ><strong>No coloque informaci&oacute;n personal</strong>
+              </mat-hint>
+              <mat-hint align="end"
+                >{{ message_comentarios.value.length }} / 1000</mat-hint
+              >
+              <mat-icon matSuffix>info</mat-icon>
+            </mat-form-field>
+            <mat-checkbox
+              #actionClose
+              style="margin-top: 5px"
+              (change)="getCloseConfirm(actionClose.checked)"
+              >¿Cerrar Acción?</mat-checkbox
+            >
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-actions align="end">
+        <button mat-raised-button color="primary" (click)="onSubmit()">
+          Guardar
+        </button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</div>

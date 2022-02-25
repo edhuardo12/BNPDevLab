@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../components/home/home.component';
 import { InboxComponent } from '../components/home/inbox/inbox.component';
-import { MyTicketsComponent } from '../components/home/my-tickets/my-tickets.component';
 import { TeamComponent } from '../components/home/team/team.component';
+import { TicketsComponent } from '../components/home/tickets/tickets.component';
 import { WorkloadComponent } from '../components/home/workload/workload.component';
 import { SignInComponent } from '../components/sign-in/sign-in.component';
 import { AuthGuard } from '../guards/auth.guard';
@@ -21,7 +21,7 @@ const routes: Routes = [
         path: 'myTeam',
         component: TeamComponent,
       },
-      { path: 'myTickets', component: MyTicketsComponent },
+      { path: 'myTickets', component: TicketsComponent },
       { path: 'workload', component: WorkloadComponent },
     ],
   },
